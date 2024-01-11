@@ -1,7 +1,7 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { MainLayout } from './layout'
-import { HomeContainer, ProtectContainer } from './containers'
+import { HomeContainer, ProtectContainer, StatsContainer } from './containers'
 import ProtectLayout from './layout/ProtectLayout.tsx'
 
 function App() {
@@ -12,6 +12,10 @@ function App() {
         {
           path: '/',
           element: <HomeContainer />,
+        },
+        {
+          path: '/stats',
+          element: <StatsContainer />,
         },
         {
           path: '/detail/:id',

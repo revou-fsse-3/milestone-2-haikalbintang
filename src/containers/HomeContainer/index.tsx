@@ -1,14 +1,29 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Button, Card } from '../../components'
+import Pokemon from './Pokemon'
+
+interface PokemonData {
+  name: string
+}
+
+interface ResponseData {
+  results: PokemonData[]
+}
 
 const HomeContainer = () => {
-  // const [number, setNumber] = useState(1)
+  const [pokemons, setPokemons] = useState<PokemonData[]>([])
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  const handleInsertToken = () => {
-    localStorage.setItem('token', 'asdzxc')
-  }
+  const fetchingPokemon = useCallback(async () => {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
+    const data: ResponseData = await response.json()
+    const result = data.results
+    setPokemons(result)
+  }, [])
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    fetchingPokemon()
+  }, [fetchingPokemon])
 
   return (
     <Card border>
@@ -16,7 +31,10 @@ const HomeContainer = () => {
         <h2>Ini Container</h2>
       </div>
       <Card border>
-        <Button label="Login" onClick={handleInsertToken} />
+        <Pokemon pokemons={pokemons} />
+        <Button label={'Fetch Ulang'} onClick={() => fetchingPokemon()} />
+        <Button label={'Update Value'} onClick={() => (inputRef.current!.value = 'value updated')} />
+        <input type="text" value={'ini value'} ref={inputRef} />
       </Card>
     </Card>
   )
