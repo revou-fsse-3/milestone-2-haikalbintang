@@ -1,7 +1,8 @@
-import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { MainLayout } from "./layout";
-import { HomeContainer } from "./containers";
+import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { MainLayout } from './layout'
+import { HomeContainer, ProtectContainer } from './containers'
+import ProtectLayout from './layout/ProtectLayout.tsx'
 
 function App() {
   const routes = createBrowserRouter([
@@ -9,26 +10,35 @@ function App() {
       element: <MainLayout />,
       children: [
         {
-          path: "/",
+          path: '/',
           element: <HomeContainer />,
         },
         {
-          path: "/detail/:id",
+          path: '/detail/:id',
           element: <></>,
         },
         {
-          path: "*",
+          path: '*',
           element: <h1>Page Not Found</h1>,
         },
       ],
     },
-  ]);
+    {
+      element: <ProtectLayout />,
+      children: [
+        {
+          path: '/protect',
+          element: <ProtectContainer />,
+        },
+      ],
+    },
+  ])
 
   return (
     <>
       <RouterProvider router={routes} />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

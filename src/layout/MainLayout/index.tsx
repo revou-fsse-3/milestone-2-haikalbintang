@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
-import { Navbar } from "../../components";
+import { Outlet } from 'react-router-dom'
+import { Navbar } from '../../components'
 
 const MainLayout = () => {
   return (
@@ -7,9 +7,10 @@ const MainLayout = () => {
       <div>
         <Navbar />
         <Outlet />
+        <div>Footer</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout
