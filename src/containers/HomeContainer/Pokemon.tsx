@@ -16,7 +16,7 @@ const Pokemon = ({ pokemons }: Props) => {
   return (
     <ul>
       {' '}
-      {pokemons.map((pokemon, index) => (
+      {filteredPokemon.map((pokemon, index) => (
         <li key={index}>{pokemon.name}</li>
       ))}
     </ul>

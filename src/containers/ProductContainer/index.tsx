@@ -31,6 +31,9 @@ const ProductContainer = () => {
 
   const submitProduct = async (form: ProductData) => {
     const response = await fetch('https://dummyjson.com/products/add', {
+      headers: {
+        Authorization: localStorage.getItem('token') ?? '',
+      },
       method: 'POST',
       body: JSON.stringify({
         title: form.title,

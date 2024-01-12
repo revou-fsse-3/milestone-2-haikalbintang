@@ -1,5 +1,5 @@
 import { Outlet, Navigate } from 'react-router-dom'
-import { Navbar } from '../../components'
+import { Footer, Navbar } from '../../components'
 
 const ProtectLayout = () => {
   const token = localStorage.getItem('token')
@@ -10,7 +10,7 @@ const ProtectLayout = () => {
         <div>
           <Navbar />
           <Outlet />
-          <div>Footer</div>
+          <Footer />
         </div>
       </div>
     )
