@@ -78,6 +78,10 @@ const Navbar = () => {
                   {' '}
                   Protect
                 </Link>
+                <Link className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" to={'/user'}>
+                  {' '}
+                  User
+                </Link>
               </div>
             </div>
           </div>

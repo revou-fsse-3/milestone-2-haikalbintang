@@ -8,7 +8,11 @@ export interface ResponseData {
   results: PokemonData[]
 }
 
-const useFetchingPokemon = () => {
+interface Props {
+  enabled: boolean
+}
+
+const useFetchingPokemon = ({ enabled }: Props) => {
   const [pokemons, setPokemons] = useState<PokemonData[]>([])
 
   const fetchingPokemon = useCallback(async () => {
@@ -19,10 +23,15 @@ const useFetchingPokemon = () => {
   }, [])
 
   useEffect(() => {
-    fetchingPokemon()
-  }, [fetchingPokemon])
+    if (enabled) {
+      fetchingPokemon()
+    }
+  }, [fetchingPokemon, enabled])
 
-  return data: pokemons
+  return {
+    data: pokemons,
+    fetchingPokemon,
+  }
 }
 
 export default useFetchingPokemon

@@ -1,8 +1,9 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { MainLayout } from './layout'
-import { HomeContainer, ProtectContainer, StatsContainer } from './containers'
+import { HomeContainer, ProtectContainer, StatsContainer, UserContainer } from './containers'
 import ProtectLayout from './layout/ProtectLayout.tsx'
+import ContextProvider from './providers/ContextProvider.tsx'
 
 function App() {
   const routes = createBrowserRouter([
@@ -22,6 +23,10 @@ function App() {
           element: <></>,
         },
         {
+          path: '/user',
+          element: <UserContainer />
+        },
+        {
           path: '*',
           element: <h1>Page Not Found</h1>,
         },
@@ -39,9 +44,11 @@ function App() {
   ])
 
   return (
-    <>
-      <RouterProvider router={routes} />
-    </>
+    <div className="App">
+      <ContextProvider>
+        <RouterProvider router={routes} />
+      </ContextProvider>
+    </div>
   )
 }
 
