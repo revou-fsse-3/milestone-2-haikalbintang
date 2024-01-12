@@ -10,7 +10,7 @@ interface PokemonData {
 
 const Pokemon = ({ pokemons }: Props) => {
   const filteredPokemon = useMemo(() => {
-    return pokemons.filter((pokemon) => pokemon.name !== 'bulbasaur')
+    return pokemons.filter((pokemon) => pokemon.name)
   }, [])
 
   return (

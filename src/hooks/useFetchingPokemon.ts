@@ -23,7 +23,9 @@ const useFetchingPokemon = ({ enabled }: Props) => {
   }, [])
 
   useEffect(() => {
-    if (enabled) {fetchingPokemon()}
+    if (enabled) {
+      fetchingPokemon()
+    }
   }, [fetchingPokemon, enabled])
 
   return {
