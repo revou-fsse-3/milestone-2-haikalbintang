@@ -1,5 +1,12 @@
-const Card = () => {
-  return <div>Card</div>;
-};
+import { ReactNode } from 'react'
 
-export default Card;
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  border: boolean
+  children: ReactNode
+}
+
+const Card = ({ border, children, ...props }: Props) => {
+  return <div className={`${border && 'rounded border-slate-600 border'} p-8 ${props.className}`}>{children}</div>
+}
+
+export default Card
