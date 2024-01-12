@@ -1,15 +1,16 @@
 import { ReactNode, createContext, useState } from 'react'
 
-export interface User {
-  id: number
-  name: string
-  username: string
-  email: string
+export interface Pokemon {
+  species: string
+  type: string
+  hp: number
+  attack: number
+  defense: number
 }
 
 interface Context {
-  user?: User
-  setUser?: React.Dispatch<React.SetStateAction<User | undefined>>
+  pokemon?: Pokemon
+  setPokemon?: React.Dispatch<React.SetStateAction<Pokemon | undefined>>
 }
 
 interface Props {
@@ -17,16 +18,16 @@ interface Props {
 }
 
 const defaultValue: Context = {
-  user: undefined,
-  setUser: undefined,
+  pokemon: undefined,
+  setPokemon: undefined,
 }
 
 export const AppContext = createContext(defaultValue)
 
 const ContextProvider = ({ children }: Props) => {
-  const [user, setUser] = useState<User>()
+  const [pokemon, setPokemon] = useState<Pokemon>()
 
-  return <AppContext.Provider value={{ user, setUser: setUser }}>{children}</AppContext.Provider>
+  return <AppContext.Provider value={{ pokemon, setPokemon: setPokemon }}>{children}</AppContext.Provider>
 }
 
 export default ContextProvider

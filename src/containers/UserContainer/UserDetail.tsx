@@ -1,24 +1,24 @@
-import { useContext } from 'react'
-import { Card, Text } from '../../components'
-import { AppContext } from '../../providers/ContextProvider'
+// import { useContext } from 'react'
+// import { Card, Text } from '../../components'
+// import { AppContext } from '../../providers/ContextProvider'
 
-const UserDetail = () => {
-  const { user } = useContext(AppContext)
+// const UserDetail = () => {
+//   const { user } = useContext(AppContext)
 
-  return (
-    <Card
-      border={false}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
-      }}
-    >
-      <Text>{`Nama User: ${user?.name ?? '-'}`}</Text>
-      <Text>{`Email User: ${user?.email ?? '-'} `}</Text>
-      <Text>{`Username User: ${user?.username ?? '-'} `}</Text>
-    </Card>
-  )
-}
+//   return (
+//     <Card
+//       border={false}
+//       style={{
+//         display: 'flex',
+//         flexDirection: 'column',
+//         gap: '10px',
+//       }}
+//     >
+//       <Text>{`Nama User: ${user?.name ?? '-'}`}</Text>
+//       <Text>{`Email User: ${user?.email ?? '-'} `}</Text>
+//       <Text>{`Username User: ${user?.username ?? '-'} `}</Text>
+//     </Card>
+//   )
+// }
 
-export default UserDetail
+// export default UserDetail
