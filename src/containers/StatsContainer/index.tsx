@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Card, Input } from '../../components'
 import axios from 'axios'
 
@@ -24,6 +24,7 @@ const StatsContainer = () => {
     defense: '',
     list: '',
   })
+  const [pokemons, setPokemons] = useState<PokemonList[]>([])
 
   const searchPokemon = () => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((response) => {
@@ -40,6 +41,31 @@ const StatsContainer = () => {
       setPokemonChosen(true)
     })
   }
+
+  const pokemonData = async () => {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/`)
+    const data: Response = await response.json()
+    setPokemons(data.pokemons)
+  }
+
+  //   const pokemonSubmit = async (form: PokemonList) => {
+  //     const response = await fetch('https://dummyjson.com/products/add', {
+  //       headers: {
+  //         Authorization: localStorage.getItem('token') ?? '',
+  //       },
+  //       method: 'POST',
+  //       body: JSON.stringify({
+  //         title: form.title,
+  //         price: form.price,
+  //       }),
+  //     })
+  //     const data: ProductData = await response.json()
+  //     setProducts([...products, data])
+  //   }
+
+  useEffect(() => {
+    pokemonData()
+  }, [])
 
   return (
     <div>
@@ -108,13 +134,28 @@ const StatsContainer = () => {
             )}
           </div>
         </Card>
-        {/* <Card border>
-          {
-            <tr>
-              <td>{pokemon.list}</td>
-            </tr>
-          }
-        </Card> */}
+        <Card border>
+          <p>bulbasaur</p>
+          <p>ivysaur</p>
+          <p>venusaur</p>
+          <p>charmander</p>
+          <p>charmeleon</p>
+          <p>charizard</p>
+          <p>squirtle</p>
+          <p>wartortle</p>
+          <p>blastoise</p>
+          <p>caterpie</p>
+          <p>metapod</p>
+          <p>butterfree</p>
+          <p>weedle</p>
+          <p>kakuna</p>
+          <p>beedrill</p>
+          <p>pidgey</p>
+          <p>pidgeotto</p>
+          <p>pidgeot</p>
+          <p>rattata</p>
+          <p>raticate</p>
+        </Card>
       </Card>
     </div>
   )
