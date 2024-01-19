@@ -1,4 +1,4 @@
-import { Card, Text } from '../../components'
+import { Button, Card, Text } from '../../components'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
 import { Navigate } from 'react-router-dom'
@@ -43,7 +43,7 @@ const LoginContainer = () => {
     validationSchema: yup.object({
       email: yup
         .string()
-        .min(8, 'ya kali emai cuma segitu karakternya')
+        .min(8)
         .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Input The proper email')
         .required('Please fill the username'),
       password: yup
@@ -80,40 +80,49 @@ const LoginContainer = () => {
               Login
             </h1>
           </div>
-          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <div className="mt-10 sm:mx-auto sm:w-80 sm:max-w-sm">
             <form onSubmit={handleSubmit} className="space-y-6" action="#" method="POST">
               <div>
-                <label className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-                <div className="mt-2">
-                  <input
-                    value={email}
-                    name="email"
-                    type="email"
-                    onChange={handleChange('email')}
-                    required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
+                <div className="mb-4">
+                  <label>Email address</label>
+                  <div>
+                    <input
+                      autoFocus
+                      value={email}
+                      name="email"
+                      type="email"
+                      onChange={handleChange('email')}
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                  <div className="text-red-600">{errors.email && <Text>{errors.email}</Text>}</div>
                 </div>
-
-                {errors.email && <Text>{errors.email}</Text>}
-                <label className="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                <div className="mt-2">
-                  <input
-                    value={password}
-                    name="password"
-                    type="password"
-                    onChange={handleChange('password')}
-                    required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
+                <div>
+                  <label>Password</label>
+                  <div>
+                    <input
+                      value={password}
+                      name="password"
+                      type="password"
+                      onChange={handleChange('password')}
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                  <div className="text-red-600">{errors.password && <Text>{errors.password}</Text>}</div>
                 </div>
-                {errors.password && <Text>{errors.password}</Text>}
-                <button
-                  type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '20px',
+                  }}
                 >
-                  Sign up
-                </button>
+                  <Button label={'Login'} />
+                </div>
               </div>
             </form>
           </div>

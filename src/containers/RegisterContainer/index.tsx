@@ -82,7 +82,7 @@ const RegisterContainer = () => {
                 <div className="mb-4">
                   <label>Name</label>
                   <div>
-                    <input
+                    <input autoFocus
                       value={name}
                       name="name"
                       type="text"
