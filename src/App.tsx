@@ -1,7 +1,15 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { MainLayout } from './layout'
-import { HomeContainer, ProtectContainer, StatsContainer, ProductContainer } from './containers'
+import {
+  HomeContainer,
+  ProtectContainer,
+  StatsContainer,
+  ProductContainer,
+  RegisterContainer,
+  LoginContainer,
+  CategoryContainer,
+} from './containers'
 import ProtectLayout from './layout/ProtectLayout.tsx'
 import ContextProvider from './providers/ContextProvider.tsx'
 
@@ -21,6 +29,18 @@ function App() {
         {
           path: '/product',
           element: <ProductContainer />,
+        },
+        {
+          path: '/register',
+          element: <RegisterContainer />,
+        },
+        {
+          path: '/login',
+          element: <LoginContainer />,
+        },
+        {
+          path: '/category',
+          element: <CategoryContainer />,
         },
         {
           path: '*',

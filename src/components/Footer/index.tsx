@@ -6,6 +6,7 @@ const Footer = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingBottom: '10px',
       }}
     >
       <p>Muhammad Haikal Bintang</p>
