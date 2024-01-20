@@ -36,12 +36,12 @@ const RegisterContainer = () => {
       alert('Sip mantap udah bikin akun!')
     },
     validationSchema: yup.object({
-      name: yup.string().min(8, 'Username must be at least 8 chracters').required('Please fill the username'),
+      name: yup.string().min(8, 'Username must be at least 8 characters').required('Please fill the username'),
       email: yup
         .string()
         .min(8, 'ya kali email cuma segitu karakternya')
         .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Input The proper email coyys')
-        .required('Please fill the username'),
+        .required('Please fill the email address'),
       password: yup
         .string()
         .matches(
@@ -82,7 +82,8 @@ const RegisterContainer = () => {
                 <div className="mb-4">
                   <label>Name</label>
                   <div>
-                    <input autoFocus
+                    <input
+                      autoFocus
                       value={name}
                       name="name"
                       type="text"

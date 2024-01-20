@@ -45,7 +45,7 @@ const LoginContainer = () => {
         .string()
         .min(8)
         .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Input The proper email')
-        .required('Please fill the username'),
+        .required('Please fill the email address'),
       password: yup
         .string()
         .matches(
@@ -80,7 +80,7 @@ const LoginContainer = () => {
               Login
             </h1>
           </div>
-          <div className="mt-10 sm:mx-auto sm:w-80 sm:max-w-sm">
+          <div className="mt-1 sm:mx-auto sm:w-80 sm:max-w-sm">
             <form onSubmit={handleSubmit} className="space-y-6" action="#" method="POST">
               <div>
                 <div className="mb-4">

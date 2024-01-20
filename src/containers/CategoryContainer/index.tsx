@@ -128,13 +128,14 @@ const CategoryContainer = () => {
                 Category
               </h1>
             </div>
-            <div className="mt-10 sm:mx-auto sm:w-80 sm:max-w-sm">
+            <div className="mt-1 sm:mx-auto sm:w-80 sm:max-w-sm">
               <form onSubmit={handleSubmit} className="space-y-6" action="#" method="POST">
                 <div>
                   <div className="mb-4">
                     <label>Name</label>
                     <div>
                       <input
+                        autoFocus
                         value={name}
                         name="name"
                         type="text"

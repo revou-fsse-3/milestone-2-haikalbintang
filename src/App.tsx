@@ -12,6 +12,7 @@ import {
 } from './containers'
 import ProtectLayout from './layout/ProtectLayout.tsx'
 import ContextProvider from './providers/ContextProvider.tsx'
+import MultistepFormContainer from './containers/MultistepFormContainer/index.tsx'
 
 function App() {
   const routes = createBrowserRouter([
@@ -41,6 +42,10 @@ function App() {
         {
           path: '/category',
           element: <CategoryContainer />,
+        },
+        {
+          path: '/form',
+          element: <MultistepFormContainer />,
         },
         {
           path: '*',
