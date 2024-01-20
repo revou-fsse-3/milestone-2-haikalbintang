@@ -26,9 +26,19 @@ const HomeContainer = () => {
   return (
     <Card border={false}>
       <Card border>
+        <h1
+          style={{
+            fontSize: '32px',
+            marginBottom: '15px',
+          }}
+        >
+          Pokemon List
+        </h1>
         <ul>
           {pokemons.map((pokemon, index) => (
-            <li key={index}>{pokemon.name}</li>
+            <li key={index}>
+              {index + 1}. {pokemon.name}
+            </li>
           ))}
         </ul>
       </Card>

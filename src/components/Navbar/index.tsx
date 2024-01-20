@@ -46,32 +46,32 @@ const Navbar = () => {
               <div className="flex space-x-4">
                 <button
                   onClick={() => navigate('/')}
-                  className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="bg-gray-900 text-yellow-400 rounded-md px-3 py-2 text-sm font-medium"
                   aria-current="page"
                 >
                   Home
                 </button>
                 <button
                   onClick={() => navigate('/stats')}
-                  className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="bg-gray-900 text-yellow-400 rounded-md px-3 py-2 text-sm font-medium"
                   aria-current="page"
                 >
                   Stats
                 </button>
-                <Link className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" to={'/protect'}>
+                {/* <Link className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" to={'/protect'}>
                   {' '}
                   Protect
                 </Link>
                 <Link className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" to={'/product'}>
                   {' '}
                   Product
-                </Link>
-                <Link className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" to={'/user'}>
+                </Link> */}
+                {/* <Link className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" to={'/user'}>
                   {' '}
                   User
-                </Link>
+                </Link> */}
                 {/* <button onClick={() => navigate('/about')} className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">About</button> */}
-                <Link className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" to={'/about'}>
+                {/* <Link className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" to={'/about'}>
                   {' '}
                   About
                 </Link>
@@ -81,7 +81,23 @@ const Navbar = () => {
                   aria-current="page"
                 >
                   Contact Us
-                </button>
+                </button> */}
+                <Link className="bg-gray-900 text-green-500 rounded-md px-3 py-2 text-sm font-medium" to={'/category'}>
+                  {' '}
+                  Category
+                </Link>
+                <Link className="bg-gray-900 text-green-500 rounded-md px-3 py-2 text-sm font-medium" to={'/register'}>
+                  {' '}
+                  Register
+                </Link>
+                <Link className="bg-gray-900 text-green-500 rounded-md px-3 py-2 text-sm font-medium" to={'/login'}>
+                  {' '}
+                  Login
+                </Link>
+                <Link className="bg-gray-900 text-red-600 rounded-md px-3 py-2 text-sm font-medium" to={'/form'}>
+                  {' '}
+                  Form
+                </Link>
               </div>
             </div>
           </div>
